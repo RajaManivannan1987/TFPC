@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TFPC</string>
+    <string name="login_forgot_password"><u>Forgot Password?</u></string>
+</resources>
