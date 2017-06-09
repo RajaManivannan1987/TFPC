@@ -19,6 +19,7 @@ public class CommonActionBarListAdapter extends BaseAdapter {
     private Context context;
     private String[] listName = {
             "Home",
+            "Member Dashboard",
             "About TFPC",
             "Events",
             "Gallery",
@@ -68,6 +69,4 @@ public class CommonActionBarListAdapter extends BaseAdapter {
 //        imageView.setImageResource(listImage[position]);
         return convertView;
     }
-
-
 }

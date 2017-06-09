@@ -2,6 +2,7 @@ package com.example.tfpc.tfpc.Utility.ActionBar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,10 +24,15 @@ import com.example.tfpc.tfpc.Activity.DocumentsActivity;
 import com.example.tfpc.tfpc.Activity.EventsActivity;
 import com.example.tfpc.tfpc.Activity.GalleryActivity;
 import com.example.tfpc.tfpc.Activity.HomeActivity;
+import com.example.tfpc.tfpc.Activity.Login;
 import com.example.tfpc.tfpc.Activity.MemberActivity;
 import com.example.tfpc.tfpc.Adapter.CommonActionBarListAdapter;
 import com.example.tfpc.tfpc.R;
-import com.example.tfpc.tfpc.Utility.CommonClass.Session;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 /**
@@ -33,10 +40,13 @@ import com.example.tfpc.tfpc.Utility.CommonClass.Session;
  */
 public class MenuCommonActivity extends AppCompatActivity {
     private static final String TAG = "MenuCommonActivity";
+    CircleImageView profileImage;
+    TextView commonNavigationHeadingTextView;
+    Button memberLogin;
     private Toolbar toolbar;
     private FrameLayout frameLayout, menuActivityFrameLayout;
     private DrawerLayout drawerLayout;
-    private ImageView menuImageView, menuHeaderImageView;
+    private ImageView menuImageView;
     private TextView menuHeaderTextView;
     private ListView menuListView;
 
@@ -45,7 +55,9 @@ public class MenuCommonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_menu_activity_layout);
-
+        if (getResources().getBoolean(R.bool.portrait_only)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
 
         toolbar = (Toolbar) findViewById(R.id.commonMenuActivityToolbar);
         setSupportActionBar(toolbar);
@@ -54,7 +66,7 @@ public class MenuCommonActivity extends AppCompatActivity {
         menuImageView = (ImageView) findViewById(R.id.menu);
 
         menuListView = (ListView) findViewById(R.id.commonMenuActivityDrawerListView);
-        
+
         menuActivityFrameLayout = (FrameLayout) findViewById(R.id.menuActivityFrameLayout);
 
         menuImageView.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +80,21 @@ public class MenuCommonActivity extends AppCompatActivity {
             }
         });
         View headerView = getLayoutInflater().inflate(R.layout.commom_navigation_heading, null, false);
-        menuHeaderImageView = (ImageView) headerView.findViewById(R.id.profile_image);
+        profileImage = (CircleImageView) headerView.findViewById(R.id.profile_image);
+        memberLogin = (Button) headerView.findViewById(R.id.memberLogin);
         menuHeaderTextView = (TextView) headerView.findViewById(R.id.commonNavigationHeadingTextView);
 //        menuHeaderTextView.setText(new Session(this, "MenuCommonActivity").getName());
 
         menuListView.setAdapter(new CommonActionBarListAdapter(this));
         menuListView.addHeaderView(headerView);
+
+
+        memberLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+            }
+        });
         menuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -81,6 +102,9 @@ public class MenuCommonActivity extends AppCompatActivity {
                     TextView nameTextView = (TextView) view.findViewById(R.id.commonNavigationItemTextView);
                     switch (nameTextView.getText().toString().toLowerCase().trim()) {
                         case "home":
+                            startActivity(new Intent(MenuCommonActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                            break;
+                        case "member dashboard":
                             startActivity(new Intent(MenuCommonActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                             break;
                         case "about tfpc":

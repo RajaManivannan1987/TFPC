@@ -8,16 +8,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="@dimen/_155sdp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:src="@drawable/gojack_logo"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/vishal"
             app:civ_border_color="@color/navigation_background"
             app:civ_border_width="2dp" />
 
@@ -25,13 +25,24 @@
             android:id="@+id/commonNavigationHeadingTextView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
-            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Guest"
-            android:textColor="@color/navigation_background"
+            android:text="TFPC3635"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold" />
-    </LinearLayout>
 
+        <Button
+            android:id="@+id/memberLogin"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_33sdp"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:gravity="center"
+            android:text="Member?"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="italic"
+            android:theme="@style/AppTheme.Button" />
+    </LinearLayout>
 
 </LinearLayout>

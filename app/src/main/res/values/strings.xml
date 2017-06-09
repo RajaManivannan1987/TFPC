@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TFPC</string>
+    <string name="transition_string">transition</string>
     <string name="login_forgot_password"><u>Forgot Password?</u></string>
+    <string name="about_page_text">Thiru.V.Srinivasan. Amarar Rama Arangannal, Amarar K.Krishnamoorthy, Amarar Valampuri Somanathan, Amarar P.R.Govindarajan, Amarar K.Rajagopal Chetty and Amarar AVM Murugan are the person who formed Tamil Film Producers Council 18.07.1979 as per Tamilnadu Societies Registration Act 27 of 1975.
+</string>
+
 </resources>

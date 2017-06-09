@@ -1,65 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
     tools:context="com.example.tfpc.tfpc.Activity.Login">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/_20sdp"
-        android:paddingRight="@dimen/_20sdp">
+        android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Login Member ID"
-            android:textSize="@dimen/_18sdp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp">
 
-        <EditText
-            android:id="@+id/memberIdEdittext"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/edittext_shap"
-            android:hint="Member ID"
-            android:maxLines="1"
-            android:paddingLeft="@dimen/_5sdp"
-            android:textColorHint="@color/gray_color" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Login Member ID"
+                android:textSize="@dimen/_18sdp" />
 
-        <EditText
-            android:id="@+id/pesswordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/edittext_shap"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:maxLines="1"
-            android:paddingLeft="@dimen/_5sdp"
-            android:textColorHint="@color/gray_color" />
+            <android.support.design.widget.TextInputLayout style="@style/textinputtext">
 
-        <Button
-            android:id="@+id/loginActivityLoginButton"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:theme="@style/AppTheme.Button" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/memberIdEdittext"
+                    style="@style/editTextStyle"
+                    android:hint="Member ID" />
+            </android.support.design.widget.TextInputLayout>
 
-        <TextView
-            android:id="@+id/forgotTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:gravity="center"
-            android:text="@string/login_forgot_password"
-            android:textSize="@dimen/_14sdp" />
-    </LinearLayout>
-</ScrollView>
+            <android.support.design.widget.TextInputLayout style="@style/textinputtext">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/pesswordEditText"
+                    style="@style/editTextStyle"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="#ffffff"
+                android:hint="Member ID"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_5sdp"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_color"
+                android:visibility="gone" />
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/edittext_shap"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_5sdp"
+                android:textColorHint="@color/gray_color"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/loginActivityLoginButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textStyle="normal"
+                android:theme="@style/AppTheme.Button" />
+
+            <TextView
+                android:id="@+id/forgotTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/login_forgot_password"
+                android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
